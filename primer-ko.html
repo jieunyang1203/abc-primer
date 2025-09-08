@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>움직임의 에너지: 변환 상태의 ABC 프라이머</title>
+    <link rel="stylesheet" href="primer-ko.css">
+    <script>
+        document.documentElement.classList.add('loading');
+        window.addEventListener('load', function() {
+          document.documentElement.classList.remove('loading');
+        });
+    </script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <div class="nav-buttons">
+            <button class="info-btn"><span class="circle"></span> 정보</button>
+            <button class="lang-btn"><span class="circle"></span> 영문</button>
+        </div>
+        <div class="site-title">움직이는 에너지: 변화와 전환을 따라가는 알파벳 탐구</div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="top-divider"></div>
+    
+    <!-- Letter Word Section -->
+    <div class="letter-word-container">
+        <div class="letter-word">
+            가속 에너지
+            <span class="question-btn">?</span>
+        </div>
+        <div class="question-circle">가속은 시간에 따른 속도의 변화율로, 뉴턴의 제2법칙(F=ma)의 핵심입니다. 물체가 빨라지거나 느려지거나 방향을 바꿀 때 발생합니다. 차량, 롤러코스터, 낙하하는 물체 등이 이 물리 법칙의 예시입니다.</div>
+        <div class="js-link">현재 알파벳 자바스크립트 코드</div>
+        <div class="counter">1/26</div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="section-divider"></div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content-wrapper">
+        <!-- Description Column -->
+        <div class="description-column">
+            <div class="description" id="visible-description">
+                <p>가속은 시간이 지남에 따라 속도 변화의 비율이며, 뉴턴의 제2법칙(F=ma)의 핵심입니다. 물체가 가속, 감속 또는 방향을 바꿀 때 발생합니다. 예로는 차량, 롤러코스터, 낙하하는 물체가 있으며, 이는 이 기본적인 물리적 원리를 반영합니다.</p>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-display">
+            <button class="nav-text-button prev" onclick="goToPrevLetter(); return false;">(back)</button>
+    <div class="main-letter">A</div>
+    <button class="nav-text-button next" onclick="goToNextLetter(); return false;">(next)</button>
+            
+            <!-- Concept text -->
+            <div class="concept">시간이 지남에 따라 물체의 속도 증가</div>
+        </div>
+
+    </div>
+    
+    <!-- Alphabet Strip -->
+    <div class="alphabet-strip">
+        <span class="letter current" data-letter="A">A <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="B">B <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="C">C <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="D">D <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="E">E <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="F">F <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="G">G <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="H">H <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="I">I <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="J">J <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="K">K <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="L">L <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="M">M <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="N">N <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="O">O <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="P">P <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="Q">Q <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="R">R <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="S">S <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="T">T <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="U">U <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="V">V <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="W">W <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="X">X <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="Y">Y <span class="alphabet-question-btn">?</span></span>
+        <span class="letter" data-letter="Z">Z <span class="alphabet-question-btn">?</span></span>
+    </div>
+    
+    <!-- Slider -->
+    <div class="slider-container">
+        <div class="slider-track"></div>
+        <div class="slider-thumb"></div>
+    </div>
+
+    <!-- Hidden Descriptions for All Letters -->
+    <div style="display: none;">
+        <!-- A: Acceleration -->
+        <div id="description-A" class="hidden-description">
+            <p>가속은 시간이 지남에 따라 속도 변화의 비율이며, 뉴턴의 제2법칙(F=ma)의 핵심입니다. 물체가 가속, 감속 또는 방향을 바꿀 때 발생합니다. 예로는 차량, 롤러코스터, 낙하하는 물체가 있으며, 이는 이 기본적인 물리적 원리를 반영합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+
+        <!-- B: Balance -->
+        <div id="description-B" class="hidden-description">
+            <p>균형은 대립하는 힘이 평형 상태에 있어 시스템에 안정성을 부여하는 상태입니다. 물리학에서 균형 잡힌 시스템은 순수한 힘이 없어 물체가 정지 상태를 유지하거나 일정한 속도로 움직입니다. 이 원리는 평형을 추구하는 화학 반응과 항상성을 유지하는 생물학적 유기체에도 적용됩니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- C: Conversion -->
+        <div id="description-C" class="hidden-description">
+            <p>변환은 열역학 제1법칙에 따라 총 에너지가 일정하게 유지되면서 에너지가 한 형태에서 다른 형태로 바뀌는 것입니다. 이 원리는 에너지가 운동, 위치, 열, 전기 등의 형태 사이에서 변화하는 방식을 설명합니다. 변환 과정은 광합성부터 전기 발전기까지 자연 및 설계된 시스템에서 끊임없이 발생합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- D: Density -->
+        <div id="description-D" class="hidden-description">
+            <p>밀도는 물질의 주어진 부피 내에 포함된 질량의 양을 측정하여 물질의 조밀함을 결정합니다. 이 특성은 물체가 유체에서 뜨는지 가라앉는지를 설명하고, 혼합물에서 재료가 층을 이루는 방식에 영향을 줍니다. 온도에 따른 밀도 변화는 대기와 해양의 대류 전류를 일으키며, 다양한 기술이 가능합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- E: Equilibrium -->
+        <div id="description-E" class="hidden-description">
+            <p>평형은 힘이 균형을 이루어 순 변화가 없는 상태입니다. 이는 정지 상태의 기계 시스템, 일치하는 속도의 화학 반응, 균일한 온도의 열 시스템에 적용됩니다. 시스템은 자연스럽게 최소 에너지를 나타내는 평형 상태로 진행합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- F: Friction -->
+        <div id="description-F" class="hidden-description">
+            <p>마찰은 움직이는 표면 사이의 저항력으로, 운동 에너지를 열로 변환합니다. 이는 물체가 추가 힘 없이 멈추는 이유와 표면이 마모되는 이유를 설명합니다. 기계에서 효율성을 감소시키지만, 마찰은 일상 생활에서 걷기, 운전, 그립 등을 가능하게 합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- G: Gravity -->
+        <div id="description-G" class="hidden-description">
+            <p>중력은 질량을 가진 물체 사이의 인력입니다. 이 기본적인 힘은 지구에서 무게를 만들고 천체 운동을 지배합니다. 중력은 해양 조수에서 강 흐름에 이르는 현상을 생성하면서, 우주 전체에서 은하계를 형성하고 행성 궤도를 결정합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- H: Harmonic -->
+        <div id="description-H" class="hidden-description">
+            <p>하모닉 운동은 물체가 평형 위치를 중심으로 진동하는 반복적인 패턴을 설명합니다. 이 원리는 소리 파동이 전파되는 방식, 악기가 음표를 만드는 방법, 진자와 같은 시스템이 변위될 때 움직이는 방식을 설명합니다. 하모닉 진동자는 예측 가능한 패턴으로 에너지를 저장하고 방출합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- I: Inertia -->
+        <div id="description-I" class="hidden-description">
+            <p>관성은 뉴턴의 제1법칙에서 설명된 물체의 운동 변화에 대한 저항입니다. 정지된 물체는 정지 상태를 유지하고, 움직이는 물체는 외부 힘이 작용하지 않는 한 속도를 유지합니다. 이 특성은 안전벨트가 필요한 이유와 우주선이 추진 없이 우주에서 계속 움직이는 이유를 설명합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- J: Joule -->
+        <div id="description-J" class="hidden-description">
+            <p>줄은 물리학에서 표준 에너지 단위로, 1 뉴턴의 힘이 물체를 1미터 이동시킬 때 수행되는 일을 측정합니다. 이는 움직이는 물체의 운동 에너지부터 식품의 화학 에너지까지 모든 에너지 형태를 정량화합니다. 물리학자 제임스 프레스콧 줄의 이름을 따서 명명되었습니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- K: Kinetic -->
+        <div id="description-K" class="hidden-description">
+            <p>운동 에너지는 운동 중인 물체가 가진 에너지로, 질량의 절반에 속도의 제곱을 곱하여 계산됩니다. 이 에너지 형태는 충돌 중에 전달되고, 낙하 중에 위치 에너지에서 변환되며, 마찰을 통해 열이나 발전기에서 전기 에너지와 같은 다른 에너지 유형으로 변환됩니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- L: Luminosity -->
+        <div id="description-L" class="hidden-description">
+            <p>광도는 단위 시간당 광원이 방출하는 총 에너지를 측정합니다. 별의 경우, 광도는 질량, 온도, 크기와 관련이 있습니다. 이 특성은 천문학자들이 별의 진화, 천체 사이의 거리를 결정하고, 우리 태양과 같은 별로부터의 에너지가 어떻게 생명을 가능하게 하는지 이해하는 데 도움이 됩니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- M: Momentum -->
+        <div id="description-M" class="hidden-description">
+            <p>모멘텀은 질량과 속도의 곱으로, 물체의 운동량을 나타냅니다. 이 보존된 물리적 특성은 무거운 물체나 빠른 물체가 멈추기 어려운 이유와 충돌이 물체 간에 운동을 전달하는 이유를 설명합니다. 고립된 시스템에서는 개별 물체의 변화에도 불구하고 총 모멘텀이 일정하게 유지됩니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- N: Neutron -->
+        <div id="description-N" class="hidden-description">
+            <p>중성자는 전기 전하가 없는 아원자 입자로, 원자핵 내에서 양성자와 함께 발견됩니다. 이 입자들은 핵을 안정시키고 같은 수의 양성자를 가진 원소(동위원소)를 가능하게 합니다. 자유 중성자는 불안정하고 방사능 붕괴를 하며, 핵 반응과 방사선에서 중요한 역할을 합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- O: Oscillation -->
+        <div id="description-O" class="hidden-description">
+            <p>진동은 평형 위치나 값 주변의 규칙적인 변화입니다. 이 현상은 진자, 스프링, 음파, 전자기장에서 발생합니다. 진폭, 주파수, 주기로 특징지어지는 진동은 파동을 통해 에너지를 전달하고 시간 측정, 음악, 통신 기술의 기초를 형성합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- P: Potential -->
+        <div id="description-P" class="hidden-description">
+            <p>위치 에너지는 물체의 위치나 상태로 인한 저장된 에너지입니다. 이는 중력적(높이), 탄성적(스프링), 화학적(결합), 전기적(전하 위치) 등 다양한 형태로 존재합니다. 이 에너지는 운동 에너지와 다른 형태로 변환될 수 있으며, 물체가 환경과 상호작용할 때 에너지 보존을 보여줍니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- Q: Quantum -->
+        <div id="description-Q" class="hidden-description">
+            <p>양자는 아원자 규모에서 빛과 물질이 갖는 분리된 에너지 패킷을 의미합니다. 이 혁명적인 개념은 에너지가 연속적이 아닌 고정된 양으로 전달되는 방식을 설명하며, 전자 행동, 원자 구조, 레이저와 트랜지스터와 같은 현대 기술을 지배하는 양자역학으로 이어집니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- R: Resonance -->
+        <div id="description-R" class="hidden-description">
+            <p>공명은 시스템이 자연 주파수로 구동될 때 발생하여 증폭된 진동을 일으킵니다. 이 현상은 악기가 소리를 생성하는 방식, 교량이 댐퍼를 필요로 하는 이유, MRI 기계가 인체 조직을 영상화하는 방법을 설명합니다. 공명 시스템은 때로는 극적이거나 파괴적인 결과를 가져오면서 효율적으로 에너지를 전달합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- S: Symmetry -->
+        <div id="description-S" class="hidden-description">
+            <p>물리학에서 대칭은 특정 변환 하에서 변하지 않는 특성을 의미합니다. 이러한 원리는 보존 법칙의 기초입니다. 시간 대칭은 에너지 보존과 연결되고, 공간 대칭은 모멘텀 보존과 연결됩니다. 자연의 기본적인 힘과 입자는 대칭에 의해 정의되며, 물리적 현실을 이해하기 위한 프레임워크를 제공합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- T: Thermal -->
+        <div id="description-T" class="hidden-description">
+            <p>열 에너지는 분자 운동으로 인한 물질의 내부 에너지입니다. 온도는 이 운동의 평균 강도를 측정하고, 열은 물체 간의 열 에너지 전달을 나타냅니다. 이 에너지 형태는 열역학 법칙을 따릅니다: 뜨거운 지역에서 차가운 지역으로 흐르고 궁극적으로 덜 유용한 형태로 변환됩니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- U: Uncertainty -->
+        <div id="description-U" class="hidden-description">
+            <p>양자역학에서 불확실성은 측정 정밀도에 대한 근본적인 한계를 나타냅니다. 하이젠베르크의 원리는 특정 쌍을 이루는 속성(위치와 운동량과 같은)이 동시에 완벽한 정확도로 측정될 수 없다고 명시합니다. 이는 기기 제한 때문이 아니라 양자 규모에서 자연의 확률적 특성을 반영하여 고전적 결정론에 도전합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- V: Voltage -->
+        <div id="description-V" class="hidden-description">
+            <p>전압은 두 지점 간의 전위차로, 볼트 단위로 측정됩니다. 이는 전기 회로를 통해 전류를 흐르게 하는 힘을 나타냅니다. 높은 전압은 전자가 운반하는 에너지를 증가시켜 가전제품부터 통신 시스템까지 모든 것에 전력을 공급합니다. 이 기본적인 성질은 전력망을 통해 먼 거리까지 에너지를 전송할 수 있게 합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- W: Wave -->
+        <div id="description-W" class="hidden-description">
+            <p>파동은 영구적인 입자 변위 없이 공간과 물질을 통해 에너지를 전달합니다. 이는 주파수, 파장, 진폭, 간섭 패턴과 같은 특성을 보여줍니다. 파동 현상은 소리 전달, 빛 행동, 물 움직임, 라디오부터 양자 컴퓨팅 시스템에 이르는 기술에서의 정보 전달을 설명합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- X: X-ray -->
+        <div id="description-X" class="hidden-description">
+            <p>X선은 가시광선보다 파장이 짧은 고에너지 전자기 방사선입니다. 그 침투 능력은 다양한 물질에 의해 다르게 흡수되는 동시에 내부 구조를 영상화할 수 있게 합니다. 이 특성은 의학 진단, 보안 스캐닝, 분자 구조 결정을 위한 결정학, 고에너지 우주 현상의 천문학적 관찰을 가능하게 합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- Y: Yield -->
+        <div id="description-Y" class="hidden-description">
+            <p>물리학에서 수율은 핵 반응이나 재료 변형과 같은 과정 중에 방출되는 에너지를 나타냅니다. 핵 맥락에서는 폭발 에너지 방출을 측정하는 반면, 재료 과학에서는 탄성 변형이 소성 변형이 되는 지점을 나타냅니다. 이 개념은 에너지 생산, 무기 평가, 구조 공학에 중요합니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+        
+        <!-- Z: Zero Point -->
+        <div id="description-Z" class="hidden-description">
+            <p>영점 에너지는 절대 영도 온도에서도 양자 시스템이 가지는 최소 에너지입니다. 이 잔류 에너지는 불확정성 원리가 입자가 완전히 정지하는 것을 방지하기 때문에 존재합니다. 이는 진공 요동과 같은 현상으로 나타나며 기본적인 힘에 영향을 미칠 수 있으며, 양자장 이론과 우주론에 대한 이론적 영향을 가지고 있습니다.</p>
+            <a href="#" class="js-link" style="display:none;"></a>
+        </div>
+    </div>
+
+    <!-- GSAP Core and Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="Physics2DPlugin.min.js"></script>
+<script src="SplitText.min.js"></script>
+<script src="CustomEase.min.js"></script>
+<script src="CustomBounce.min.js"></script>
+<script src="CustomWiggle.min.js"></script>
+<script src="EasePack.min.js"></script>
+<script src="Draggable.min.js"></script>
+<script src="Flip.min.js"></script>
+<script src="primer-no-cursor.js"></script>
+    <script>
+        // Compatibility script for the new layout
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure the js-link in the header triggers the hidden js-link in the description
+            const jsLink = document.querySelector('.js-link');
+            jsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Find the current letter
+                const currentLetter = document.querySelector('.letter.current').getAttribute('data-letter');
+                
+                // Find the hidden js-link in the description for the current letter
+                const hiddenDesc = document.getElementById(`description-${currentLetter}`);
+                if (hiddenDesc) {
+                    const descJsLink = hiddenDesc.querySelector('.js-link');
+                    if (descJsLink) {
+                        // Simulate click on the original js-link
+                        descJsLink.click();
+                    }
+                }
+            });
+
+            // Make language button work as a link to English version
+            const langBtn = document.querySelector('.lang-btn');
+            langBtn.addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            // Update the visible description when letter changes
+            document.addEventListener('letterChanged', function(event) {
+                if (event.detail && event.detail.letter) {
+                    // Update the visible description
+                    updateDescription(event.detail.letter);
+                }
+            });
+            
+            // Function to update the visible description
+            function updateDescription(letter) {
+                const hiddenDesc = document.getElementById(`description-${letter}`);
+                const visibleDesc = document.getElementById('visible-description');
+                
+                if (hiddenDesc && visibleDesc) {
+                    const contentText = hiddenDesc.querySelector('p').textContent;
+                    visibleDesc.innerHTML = `<p>${contentText}</p>`;
+                }
+            }
+        });
+    </script>
+    
+    <!-- Fixed Info Box Script with responsive text -->
+    <!-- Fixed Info Box Script with responsive text -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Create the info box element
+    const infoBox = document.createElement('div');
+    infoBox.id = 'info-modal';
+    
+    // Function to position and size the info box correctly
+    function positionInfoBox() {
+        // Find the About button to position popup directly underneath
+        const aboutBtn = document.querySelector('.info-btn');
+        
+        if (aboutBtn) {
+            const btnRect = aboutBtn.getBoundingClientRect();
+            
+            // Position info box directly under About button
+            infoBox.style.position = 'absolute';
+            infoBox.style.top = (btnRect.bottom + 10) + 'px';
+            infoBox.style.left = btnRect.left + 'px';
+            
+            // Make popup - 750px wide and auto height
+            infoBox.style.width = '750px';
+            infoBox.style.height = 'auto';
+            infoBox.style.maxHeight = 'none';
+        }
+    }
+    
+    // Style the info box
+    infoBox.style.backgroundColor = 'rgba(209, 209, 209, 0.9)';
+    infoBox.style.zIndex = '1000';
+    infoBox.style.display = 'none';
+    infoBox.style.overflow = 'auto';
+    infoBox.style.border = '1.5px solid #000';
+    
+    document.body.appendChild(infoBox);
+    
+    // Initial positioning
+    positionInfoBox();
+    
+    // Reposition on window resize
+    window.addEventListener('resize', positionInfoBox);
+
+    // Get the exact padding from description column
+    const descriptionColumn = document.querySelector('.description-column');
+    let descPadding = '2rem';
+    
+    if (descriptionColumn) {
+        const computedStyle = window.getComputedStyle(descriptionColumn);
+        descPadding = computedStyle.padding;
+    }
+
+    infoBox.innerHTML = `
+        <div style="padding: 15px 20px; font-family: 'Pretendard-Light', 'MaruBuri-Regular', sans-serif; font-size: 18px; line-height: 1.4; text-align: left; word-break: keep-all; width: 100%; box-sizing: border-box;">
+            <p>세상의 모든 것은 끊임없이 형태를 바꾸며 움직이는 에너지로 구성되어 있다. 이 ABC Primer는 알파벳 하나하나에 에너지 개념을 대응시켜, 마우스 움직임에 반응하는 형태로 내용을 전달한다. 이 프로젝트는 과학적 원리를 시각화하고, 물리적 힘과 변화를 직접 체감할 수 있도록 구성되었다. 각 글자는 상호작용을 통해 에너지의 다양한 상태를 시각적으로 표현한다.</p>
+        </div>
+    `;
+
+    // Track if the box is visible
+    let isInfoBoxVisible = false;
+
+    // Find the info button
+    const infoBtn = document.querySelector('.info-btn');
+    
+    // Add click event listener
+    if (infoBtn) {
+        infoBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (!isInfoBoxVisible) {
+                // Show the box
+                infoBox.style.display = 'flex';
+                infoBox.style.justifyContent = 'center';
+                infoBox.style.alignItems = 'center';
+                positionInfoBox(); // Ensure correct positioning on display
+                isInfoBoxVisible = true;
+            } else {
+                // Hide the box
+                infoBox.style.display = 'none';
+                isInfoBoxVisible = false;
+            }
+        });
+        
+        // Close when clicking anywhere else
+        document.addEventListener('click', function(e) {
+            if (isInfoBoxVisible && !infoBox.contains(e.target) && e.target !== infoBtn) {
+                infoBox.style.display = 'none';
+                isInfoBoxVisible = false;
+            }
+        });
+    }
+});
+
+    // Question mark functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const questionBtn = document.querySelector('.question-btn');
+        const questionCircle = document.querySelector('.question-circle');
+        
+        if (questionBtn && questionCircle) {
+            questionBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                questionCircle.classList.toggle('show');
+            });
+            
+            // Close when clicking elsewhere
+            document.addEventListener('click', function(e) {
+                if (!questionBtn.contains(e.target) && !questionCircle.contains(e.target)) {
+                    questionCircle.classList.remove('show');
+                }
+            });
+        }
+
+        // Alphabet question mark functionality
+        const alphabetQuestionBtns = document.querySelectorAll('.alphabet-question-btn');
+        alphabetQuestionBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Get the letter from parent element
+                const letter = btn.parentElement.getAttribute('data-letter');
+                
+                // Find the description for this letter
+                const description = document.getElementById('description-' + letter);
+                
+                if (description) {
+                    // Create a popup showing the description
+                    let popup = document.getElementById('alphabet-popup');
+                    if (!popup) {
+                        popup = document.createElement('div');
+                        popup.id = 'alphabet-popup';
+                        popup.style.position = 'absolute';
+                        popup.style.background = '#d1d1d1';
+                        popup.style.border = '1.5px solid #000';
+                        popup.style.padding = '12px';
+                        popup.style.fontFamily = 'Pretendard-Light, sans-serif';
+                        popup.style.fontSize = '12px';
+                        popup.style.lineHeight = '1.3';
+                        popup.style.zIndex = '1000';
+                        popup.style.maxWidth = '300px';
+                        popup.style.display = 'none';
+                        popup.style.wordBreak = 'keep-all';
+                        document.body.appendChild(popup);
+                    }
+                    
+                    // Position popup near the clicked button
+                    const rect = btn.getBoundingClientRect();
+                    popup.style.top = (rect.bottom + 5) + 'px';
+                    popup.style.left = rect.left + 'px';
+                    
+                    // Set content
+                    popup.innerHTML = description.querySelector('p').innerHTML;
+                    
+                    // Show/hide popup
+                    if (popup.style.display === 'block') {
+                        popup.style.display = 'none';
+                    } else {
+                        popup.style.display = 'block';
+                    }
+                }
+            });
+        });
+
+        // Close alphabet popup when clicking elsewhere
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('alphabet-popup');
+            if (popup && !e.target.classList.contains('alphabet-question-btn')) {
+                popup.style.display = 'none';
+            }
+        });
+    });
+    </script>
+
+    <!-- Script to fix JS link text -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set fixed text for JS link
+            const jsLink = document.querySelector('.js-link');
+            if (jsLink) {
+                jsLink.textContent = "현재 알파벳 자바스크립트 코드";
+            }
+        });
+    </script>
+    <script src="code-display.js"></script>
+    <script src="particles.js"></script>
+    <script>
+        // Self-contained fix for navigation buttons and keyboard controls
+        (function() {
+            // Wait for page to fully load
+            window.addEventListener('load', function() {
+                console.log("Navigation fix running...");
+                
+                // Get the navigation buttons
+                const prevButton = document.querySelector('.nav-text-button.prev');
+                const nextButton = document.querySelector('.nav-text-button.next');
+                
+                // Get all alphabet letters
+                const letters = document.querySelectorAll('.alphabet-strip .letter');
+                const letterArray = Array.from(letters).map(el => el.getAttribute('data-letter'));
+                
+                // Function to find current letter
+                function getCurrentLetter() {
+                    const currentLetter = document.querySelector('.letter.current');
+                    return currentLetter ? currentLetter.getAttribute('data-letter') : 'A';
+                }
+                
+                // Flag to prevent double navigation (IMPORTANT)
+                window.keyboardNavigationHandled = true;
+                
+                // Check if there's already a global function we can use
+                let hasGlobalNavFunctions = false;
+                if (typeof window.goToPrevLetter === 'function' && typeof window.goToNextLetter === 'function') {
+                    hasGlobalNavFunctions = true;
+                    console.log("Using existing global navigation functions");
+                }
+                
+                // Navigation functions - but don't define them if they already exist
+                if (!hasGlobalNavFunctions) {
+                    // Define our own navigation functions
+                    window.goToPrevLetter = function() {
+                        const currentLetter = getCurrentLetter();
+                        const currentIndex = letterArray.indexOf(currentLetter);
+                        const prevIndex = (currentIndex - 1 + 26) % 26; // Wrap from A to Z
+                        
+                        // Find the previous letter element and click it
+                        const prevLetter = letterArray[prevIndex];
+                        const prevElement = document.querySelector(`.letter[data-letter="${prevLetter}"]`);
+                        if (prevElement) {
+                            prevElement.click();
+                            console.log(`Navigated to previous letter: ${prevLetter}`);
+                        }
+                    };
+                    
+                    window.goToNextLetter = function() {
+                        const currentLetter = getCurrentLetter();
+                        const currentIndex = letterArray.indexOf(currentLetter);
+                        const nextIndex = (currentIndex + 1) % 26; // Wrap from Z to A
+                        
+                        // Find the next letter element and click it
+                        const nextLetter = letterArray[nextIndex];
+                        const nextElement = document.querySelector(`.letter[data-letter="${nextLetter}"]`);
+                        if (nextElement) {
+                            nextElement.click();
+                            console.log(`Navigated to next letter: ${nextLetter}`);
+                        }
+                    };
+                    
+                    console.log("Navigation functions defined");
+                }
+                
+                // Directly replace the buttons with new ones that have working handlers
+                if (prevButton && prevButton.parentNode) {
+                    const newPrevButton = document.createElement('button');
+                    newPrevButton.className = prevButton.className;
+                    newPrevButton.innerHTML = prevButton.innerHTML;
+                    newPrevButton.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.goToPrevLetter();
+                        return false;
+                    };
+                    prevButton.parentNode.replaceChild(newPrevButton, prevButton);
+                }
+                
+                if (nextButton && nextButton.parentNode) {
+                    const newNextButton = document.createElement('button');
+                    newNextButton.className = nextButton.className;
+                    newNextButton.innerHTML = nextButton.innerHTML;
+                    newNextButton.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.goToNextLetter();
+                        return false;
+                    };
+                    nextButton.parentNode.replaceChild(newNextButton, nextButton);
+                }
+                
+                // Get updated button references after replacement
+                const updatedPrevButton = document.querySelector('.nav-text-button.prev');
+                const updatedNextButton = document.querySelector('.nav-text-button.next');
+                
+                // Add a custom style to override the underline
+                const styleEl = document.createElement('style');
+                styleEl.textContent = `
+                    .nav-text-button.keyboard-active {
+                        font-style: italic;
+                        transform: translateY(-50%) skewX(-5deg) !important;
+                    }
+                `;
+                document.head.appendChild(styleEl);
+                
+                // IMPORTANT: Remove the existing keyboard event listener from primer.js to avoid double navigation
+                // This is done by creating a new handler that intercepts and handles the events before primer.js can
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                        e.stopImmediatePropagation(); // Prevent other handlers from executing
+                        
+                        // Visual feedback for the buttons
+                        if (e.key === 'ArrowLeft' && updatedPrevButton) {
+                            updatedPrevButton.classList.add('keyboard-active');
+                            setTimeout(function() {
+                                updatedPrevButton.classList.remove('keyboard-active');
+                            }, 300);
+                        } else if (e.key === 'ArrowRight' && updatedNextButton) {
+                            updatedNextButton.classList.add('keyboard-active');
+                            setTimeout(function() {
+                                updatedNextButton.classList.remove('keyboard-active');
+                            }, 300);
+                        }
+                        
+                        // Call the appropriate navigation function
+                        if (e.key === 'ArrowLeft') {
+                            window.goToPrevLetter();
+                        } else if (e.key === 'ArrowRight') {
+                            window.goToNextLetter();
+                        }
+                        
+                        // Prevent default browser scrolling
+                        e.preventDefault();
+                    }
+                }, true); // Use capturing phase to ensure this runs first
+                
+                console.log("Navigation fix with single key press handling applied successfully");
+            });
+        })();
+        </script>
+        
+    <!-- Add Korean concept translations for primer.js -->
+    <script>
+        // Script to register Korean concept translations
+        document.addEventListener('DOMContentLoaded', function() {
+            // This only runs if we're in the Korean version
+            if (document.documentElement.lang === 'ko') {
+                // Define Korean translations for concepts
+                const koreanConcepts = {
+                    'A': '시간이 지남에 따라 물체의 속도 증가',
+                    'B': '에너지의 균등한 분배',
+                    'C': '한 형태에서 다른 형태로 변환되는 에너지',
+                    'D': '단위 부피당 질량',
+                    'E': '균형 잡힌 대립된 힘의 상태',
+                    'F': '움직임에서 발생하는 저항',
+                    'G': '물체를 서로 끌어당기는 힘',
+                    'H': '진동의 반복적인 패턴',
+                    'I': '운동 변화에 대한 저항',
+                    'J': '에너지나 일의 단위',
+                    'K': '운동의 에너지',
+                    'L': '가시광선의 방출',
+                    'M': '질량과 속도의 곱',
+                    'N': '전하가 없는 입자',
+                    'O': '위치의 규칙적인 변화',
+                    'P': '위치에 따른 저장된 에너지',
+                    'Q': '에너지의 개별 단위',
+                    'R': '특정 주파수에서의 증폭',
+                    'S': '축이나 점을 기준으로 한 균형',
+                    'T': '온도와 관련된 에너지',
+                    'U': '측정 정밀도의 한계',
+                    'V': '전기 전위의 시각화',
+                    'W': '매질을 통해 전파되는 파동',
+                    'X': '고에너지 전자기 방사선',
+                    'Y': '과정에서 방출되는 에너지',
+                    'Z': '가능한 최저 에너지 상태'
+                };
+                
+                // Function to update description and concept
+                function updateKoreanContent(letter) {
+                    // Update description from description divs (already in Korean)
+                    const hiddenDesc = document.getElementById(`description-${letter}`);
+                    const visibleDesc = document.getElementById('visible-description');
+                    
+                    if (hiddenDesc && visibleDesc) {
+                        const contentText = hiddenDesc.querySelector('p').textContent;
+                        visibleDesc.innerHTML = `<p>${contentText}</p>`;
+                    }
+                    
+                    // Update concept text with Korean translations
+                    const concept = document.querySelector('.concept');
+                    if (concept && koreanConcepts[letter]) {
+                        concept.textContent = koreanConcepts[letter];
+                    }
+                }
+                
+                // Set initial Korean content immediately on page load for letter "A"
+                updateKoreanContent('A');
+                
+                // Override the update description function in primer.js for subsequent letter changes
+                document.addEventListener('letterChanged', function(event) {
+                    if (event.detail && event.detail.letter) {
+                        updateKoreanContent(event.detail.letter);
+                    }
+                });
+                
+                // Add another listener to ensure Korean content is set after any DOM changes
+                setTimeout(function() {
+                    const currentLetter = document.querySelector('.letter.current');
+                    if (currentLetter) {
+                        const letter = currentLetter.getAttribute('data-letter');
+                        updateKoreanContent(letter);
+                    }
+                }, 500);
+            }
+        });
+    </script>
+    <script>
+        // Fix for site title refresh functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the site title element
+            const siteTitle = document.querySelector('.site-title');
+            
+            // Add click event listener to reload the page
+            if (siteTitle) {
+                siteTitle.addEventListener('click', function() {
+                    window.location.reload();
+                });
+                
+                // Add a cursor style to indicate it's clickable
+                siteTitle.style.cursor = 'pointer';
+            }
+        });
+        </script>
+</body>
+</html>

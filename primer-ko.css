@@ -1,0 +1,681 @@
+/* Font declarations */
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SuisseIntl-Light';
+    src: url('SuisseIntl-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'test-family-light';
+    src: url('test-family-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'test-family-light-italic';
+    src: url('test-family-light-italic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Add the SM세명조 font declaration */
+@font-face {
+    font-family: 'SM세명조-Regular';
+    src: url('SM세명조-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard-Light', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #d1d1d1;
+    font-family: 'Pretendard-Light', sans-serif;
+    letter-spacing: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Nav Area */
+.top-nav {
+    height: 60px; /* Fixed height for consistency */
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Updated button styles */
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.info-btn, .lang-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-family: 'Pretendard-Light', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+    letter-spacing: 0;
+}
+
+.info-btn:hover, .lang-btn:hover {
+    font-family: 'Pretendard-Light', sans-serif;
+    transform: skewX(-10deg);
+    transition: transform 0.2s ease;
+}
+
+.info-btn:active, .lang-btn:active {
+    font-family: 'Pretendard-Light', sans-serif;
+    transform: skewX(-10deg);
+}
+
+/* Hide the circles */
+.circle {
+    display: none;
+}
+
+/* Question mark button */
+.question-btn {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+    font-family: 'Pretendard-Light', sans-serif;
+}
+
+/* Alphabet question mark button */
+.alphabet-question-btn {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 13px;
+    font-family: 'Pretendard-Light', sans-serif;
+    background-color: #fff;
+}
+
+/* Update site-title font */
+.site-title {
+    font-family: 'Pretendard-Light', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #000000;
+    text-align: right;
+    cursor: pointer;
+    letter-spacing: 0;
+}
+
+.site-title:hover {
+    font-family: 'Pretendard-Light', sans-serif;
+    transform: skewX(-10deg);
+    transition: transform 0.2s ease;
+}
+
+.top-divider {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    height: 6.5px;
+    background: linear-gradient(90deg,
+        #FF5757 0%,
+        #FF66C4 20%,
+        #FEFF86 40%,
+        #B0FF8C 60%,
+        #6EB5FF 80%,
+        #FF5757 100%);
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+/* Letter Word Area */
+.letter-word-container {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    position: relative;
+    border-bottom: none; /* Remove original border */
+}
+
+/* Add pseudo-element for the bottom border with margins */
+.letter-word-container:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    height: 1.5px;
+    background: #000;
+}
+
+.letter-word {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 80px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.question-circle {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 220px;
+    background: #d1d1d1;
+    border: 1.5px solid #000;
+    padding: 12px;
+    font-family: 'Pretendard-Light', sans-serif;
+    font-size: 6px;
+    line-height: 1.3;
+    z-index: 10;
+    cursor: pointer;
+    display: none;
+    word-break: keep-all;
+}
+
+.question-circle.show {
+    display: block;
+}
+
+.js-link {
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Pretendard-Light', sans-serif;
+    letter-spacing: 0;
+    color: #000;
+    text-decoration: none;
+    position: absolute;
+    right: 7rem;
+    top: calc(50% - 4px);
+    transform: translateY(-50%);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    transition: transform 0.2s ease;
+}
+
+
+/* Counter */
+.counter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    display: flex;
+    flex: 1;
+    border-bottom: none; /* Remove original border */
+    position: relative;
+}
+
+/* Add pseudo-element for the bottom border with margins */
+.main-content-wrapper:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    height: 1.5px;
+    background: #000;
+}
+
+/* Description Column */
+.description-column {
+    width: 40%;
+    padding: 2rem;
+    border-right: none;
+    line-height: 1.4;
+    font-size: 24px;
+    font-family: 'Pretendard-Light', sans-serif;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+/* Add pseudo-element for right border with margins */
+.description-column:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    right: 0;
+    width: 1.5px;
+    background: #000;
+}
+
+/* About Popup Box - appears under About button */
+.about-popup {
+    position: absolute;
+    top: 60px;
+    left: 2rem;
+    width: 300px;
+    background: #d1d1d1;
+    border: 1.5px solid #000;
+    padding: 1rem;
+    font-size: 14px;
+    font-family: 'Pretendard-Light', sans-serif;
+    line-height: 1.4;
+    z-index: 20;
+    display: none;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.about-popup.show {
+    display: block;
+}
+
+/* Main Display Area */
+.main-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.main-letter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 350px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: relative;
+    top: -25px; /* Move the letter up to align with arrows */
+    margin-bottom: -25px; /* Reduce gap between letter and concept */
+}
+
+.concept {
+    font-family: 'Pretendard-Light', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: center;
+    margin-top: 25px; /* Reduced from default to create smaller gap */
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+/* Navigation Buttons */
+.navigation-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    border: 1.5px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100; /* Ensure buttons are clickable */
+}
+
+
+/* Improved navigation button styles with clear skew effect */
+.nav-text-button {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0;
+    color: #000000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.03s linear, font-style 0.03s linear;
+    z-index: 10;
+}
+
+.nav-text-button.prev {
+    left: 110px;
+}
+
+.nav-text-button.next {
+    right: 110px;
+}
+
+/* Combined selector for all types of interaction */
+.nav-text-button:hover,
+.nav-text-button:active,
+.nav-text-button.active-key {
+    font-style: italic;
+    transform: translateY(-50%) skewX(-5deg);
+    transition: transform 0.03s linear, font-style 0.03s linear;
+}
+
+/* Ensure the active class is stronger than hover */
+.nav-text-button.active-key {
+    font-style: italic !important;
+    transform: translateY(-50%) skewX(-5deg) !important;
+}
+
+/* Add a subtle highlight for better visual feedback */
+.nav-text-button.active-key::after {
+    content: "";
+    position: absolute;
+    bottom: 0.4rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+/* Alphabet Strip */
+.alphabet-strip {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    height: 60px;
+    align-items: center;
+}
+
+.letter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0;
+    cursor: pointer;
+    color: #95938E; /* Gray color for non-selected letters */
+    padding: 0.25rem 0.6rem;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 15px;
+    transition: color 0.2s ease;
+}
+
+.letter.current {
+    color: #000000; /* Black color for selected letter */
+    background-color: transparent;
+    padding: 0.35rem 0.6rem;
+    margin-top: 15px;
+    font-weight: 400; /* Slightly bolder for better visibility */
+}
+
+/* Slider Container */
+.slider-container {
+    padding: 0 2rem;
+    position: relative;
+    height: 60px;
+    margin: 1rem 0 2rem;
+}
+
+.slider-track {
+    width: calc(100% - 48px);
+    height: 1.5px;
+    background-color: #000;
+    position: absolute;
+    top: 65%;
+    left: 24px;
+    transform: translateY(-50%);
+}
+
+.slider-thumb {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: #d1d1d1;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    top: 65%;
+    transform: translateX(-12px) translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Hidden descriptions */
+.hidden-description {
+    display: none;
+    word-break: keep-all; /* Prevent Korean text from breaking words */
+    overflow-wrap: break-word; /* Allow wrapping after complete words */
+}
+
+/* Loading transition */
+html.loading * {
+    opacity: 0;
+}
+
+html * {
+    transition: opacity 0.1s ease-out;
+}
+
+/* Make all text elements non-selectable by default */
+body, .nav-buttons, .info-btn, .lang-btn, .site-title, 
+.question-circle, .js-link, .counter, .main-letter, 
+.navigation-button, .alphabet-strip, .letter {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Make specific text elements selectable */
+.description-column .description,
+.concept,
+.letter-word {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.description-column .description,
+.description-column .description p {
+    font-family: 'Pretendard-Light', sans-serif !important;
+}
+
+/* Style for selected text */
+::selection {
+    background-color: #FF45A5;
+    color: #000000;
+}
+::-moz-selection {
+    background-color: #FF45A5;
+    color: #000000;
+}
+
+/* Ensure proper line spacing in descriptions */
+.description-column .description,
+.description-column .description p {
+    line-height: 1.4 !important; /* Force line-height to be applied */
+}
+
+/* Adjust selection height to hug text better while preserving line height */
+.concept,
+.letter-word {
+    line-height: 1.2em;
+    padding: 0.1em 0;
+}
+
+.description-column .description p {
+    padding: 0.1em 0;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .main-letter {
+        font-size: 280px;
+    }
+    
+    .letter-word {
+        font-size: 80px;
+    }
+    
+    .question-circle {
+        width: 200px;
+        left: 15px;
+        font-size: 5.5px;
+    }
+    
+    .navigation-button.prev {
+        left: 60px;
+    }
+    
+    .navigation-button.next {
+        right: 60px;
+    }
+    
+    .description-column {
+        width: 35%;
+    }
+    
+    .about-popup {
+        width: 280px;
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .description-column {
+        width: 100%;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid #000;
+        padding: 1rem;
+    }
+    
+    .description-column:after {
+        display: none;
+    }
+    
+    .about-popup {
+        width: 250px;
+        left: 1rem;
+        font-size: 13px;
+    }
+    
+    .main-letter {
+        font-size: 200px;
+    }
+    
+    .letter-word {
+        font-size: 60px;
+    }
+    
+    .question-circle {
+        width: 180px;
+        left: 10px;
+        font-size: 5px;
+        padding: 8px;
+    }
+    
+    .navigation-button {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .navigation-button.prev {
+        left: 30px;
+    }
+    
+    .navigation-button.next {
+        right: 30px;
+    }
+    
+    .site-title {
+        font-size: 14px;
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navigation-button {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .navigation-button.prev {
+        left: 40px; /* Adjusted to be closer */
+    }
+    
+    .navigation-button.next {
+        right: 40px; /* Adjusted to be closer */
+    }
+}
+
+@media (max-width: 768px) {
+    .navigation-button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .navigation-button.prev {
+        left: 20px; /* Adjusted to be closer */
+    }
+    
+    .navigation-button.next {
+        right: 20px; /* Adjusted to be closer */
+    }
+}
