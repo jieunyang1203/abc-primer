@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy in Motion: An ABC Primer of Transformative States</title>
-    <link rel="stylesheet" href="primer-en.css">
+    <link rel="preload" href="test-family-light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="primer.css?v=5">
     <script>
         document.documentElement.classList.add('loading');
         window.addEventListener('load', function() {
@@ -17,77 +18,73 @@
     <div class="top-nav">
         <div class="nav-buttons">
             <button class="info-btn"><span class="circle"></span> About</button>
-            <button class="lang-btn"><span class="circle"></span> Korean</button>
         </div>
-        <div class="site-title">Energy In Motion: an ABC primer of transformative states</div>
+        <div class="site-title">Energy In Motion<span class="subtitle">: an ABC primer of transformative states</span></div>
     </div>
-    
+
     <!-- Divider -->
     <div class="top-divider"></div>
-    
-    <!-- Letter Word Section -->
-    <div class="letter-word-container">
-        <div class="letter-word">
-            Acceleration
-            <span class="question-btn">?</span>
-        </div>
-        <div class="question-circle">Acceleration is the rate of velocity change over time, central to Newton's Second Law (F=ma). It occurs when objects speed up, slow down, or change direction. Examples include vehicles, rollercoasters, and falling objects, reflecting this fundamental physical principle.</div>
-        <div class="js-link">js code for current alphabet</div>
-        <div class="counter">1/26</div>
-    </div>
-    
-    <!-- Divider -->
-    <div class="section-divider"></div>
-    
-    <!-- Main Content Area -->
+
+    <!-- Main Content Area: 3 columns -->
     <div class="main-content-wrapper">
-        <!-- Description Column -->
+        <!-- Code Column (left) -->
+        <div class="code-column">
+            <div id="code-display"></div>
+        </div>
+
+        <!-- Center Display Column -->
+        <div class="main-display">
+            <div class="letter-word-row">
+                <div class="letter-word">Acceleration</div>
+                <div class="counter">1/26</div>
+            </div>
+
+            <div class="letter-center">
+                <button class="nav-text-button prev" onclick="goToPrevLetter(); return false;">(back)</button>
+                <div class="main-letter">A</div>
+                <button class="nav-text-button next" onclick="goToNextLetter(); return false;">(next)</button>
+            </div>
+
+            <!-- Concept text -->
+            <div class="concept">Objects gain velocity over time</div>
+        </div>
+
+        <!-- Description Column (right) -->
         <div class="description-column">
             <div class="description" id="visible-description">
                 <p>Acceleration is the rate of velocity change over time, central to Newton's Second Law (F=ma). It occurs when objects speed up, slow down, or change direction. Examples include vehicles, rollercoasters, and falling objects, reflecting this fundamental physical principle.</p>
             </div>
         </div>
-
-        <!-- Main Content Area -->
-        <div class="main-display">
-            <button class="nav-text-button prev" onclick="goToPrevLetter(); return false;">(back)</button>
-    <div class="main-letter">A</div>
-    <button class="nav-text-button next" onclick="goToNextLetter(); return false;">(next)</button>
-            
-            <!-- Concept text -->
-            <div class="concept">Objects gain velocity over time</div>
-        </div>
-        
     </div>
     
     <!-- Alphabet Strip -->
     <div class="alphabet-strip">
-        <span class="letter current" data-letter="A">A <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="B">B <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="C">C <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="D">D <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="E">E <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="F">F <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="G">G <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="H">H <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="I">I <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="J">J <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="K">K <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="L">L <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="M">M <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="N">N <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="O">O <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="P">P <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="Q">Q <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="R">R <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="S">S <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="T">T <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="U">U <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="V">V <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="W">W <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="X">X <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="Y">Y <span class="alphabet-question-btn">?</span></span>
-        <span class="letter" data-letter="Z">Z <span class="alphabet-question-btn">?</span></span>
+        <span class="letter current" data-letter="A">A</span>
+        <span class="letter" data-letter="B">B</span>
+        <span class="letter" data-letter="C">C</span>
+        <span class="letter" data-letter="D">D</span>
+        <span class="letter" data-letter="E">E</span>
+        <span class="letter" data-letter="F">F</span>
+        <span class="letter" data-letter="G">G</span>
+        <span class="letter" data-letter="H">H</span>
+        <span class="letter" data-letter="I">I</span>
+        <span class="letter" data-letter="J">J</span>
+        <span class="letter" data-letter="K">K</span>
+        <span class="letter" data-letter="L">L</span>
+        <span class="letter" data-letter="M">M</span>
+        <span class="letter" data-letter="N">N</span>
+        <span class="letter" data-letter="O">O</span>
+        <span class="letter" data-letter="P">P</span>
+        <span class="letter" data-letter="Q">Q</span>
+        <span class="letter" data-letter="R">R</span>
+        <span class="letter" data-letter="S">S</span>
+        <span class="letter" data-letter="T">T</span>
+        <span class="letter" data-letter="U">U</span>
+        <span class="letter" data-letter="V">V</span>
+        <span class="letter" data-letter="W">W</span>
+        <span class="letter" data-letter="X">X</span>
+        <span class="letter" data-letter="Y">Y</span>
+        <span class="letter" data-letter="Z">Z</span>
     </div>
     
     <!-- Slider -->
@@ -101,199 +98,167 @@
         <!-- A: Acceleration -->
         <div id="description-A" class="hidden-description">
             <p>Acceleration is the rate of velocity change over time, central to Newton's Second Law (F=ma). It occurs when objects speed up, slow down, or change direction. Examples include vehicles, rollercoasters, and falling objects, reflecting this fundamental physical principle.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
 
         <!-- B: Balance -->
         <div id="description-B" class="hidden-description">
             <p>Balance occurs when opposing forces create equilibrium. In physics, balanced systems have no net force, remaining stationary or moving at constant velocity. This applies to chemical reactions seeking equilibrium and biological systems maintaining homeostasis in nature.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- C: Conversion -->
         <div id="description-C" class="hidden-description">
             <p>Conversion transforms energy between forms while total energy remains constant (First Law of Thermodynamics). Energy shifts between kinetic, potential, thermal, and electrical forms without creation or destruction. Examples include falling objects converting potential energy.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- D: Density -->
         <div id="description-D" class="hidden-description">
             <p>Density measures mass per volume, determining matter's compactness. This explains why objects float or sink and how materials layer when mixed. Temperature-related density variations drive atmospheric and oceanic currents, influencing weather patterns worldwide.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- E: Equilibrium -->
         <div id="description-E" class="hidden-description">
             <p>Equilibrium occurs when forces balance with no net change. This applies to mechanical systems at rest, chemical reactions with matched rates, and thermal systems at uniform temperature. Systems naturally progress toward equilibrium states representing minimum energy.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- F: Friction -->
         <div id="description-F" class="hidden-description">
             <p>Friction is the resistive force between moving surfaces, converting kinetic energy to heat. It explains why objects stop without added force and surfaces wear down. While reducing efficiency in machines, friction enables walking, driving, and gripping in daily life.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- G: Gravity -->
         <div id="description-G" class="hidden-description">
             <p>Gravity is the attractive force between objects with mass. This fundamental force creates weight on Earth and governs celestial motion. Gravity generates phenomena from ocean tides to river flows, while shaping galaxies and determining planetary orbits throughout space.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- H: Harmonic -->
         <div id="description-H" class="hidden-description">
             <p>Harmonic motion describes repeating patterns of vibration where an object oscillates around an equilibrium position. This principle explains how sound waves propagate, how musical instruments create notes, and how systems like pendulums move when displaced. Harmonic oscillators store and release energy in predictable patterns.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- I: Inertia -->
         <div id="description-I" class="hidden-description">
             <p>Inertia is an object's resistance to changes in motion, articulated in Newton's First Law. Objects at rest stay at rest, and moving objects maintain velocity unless acted upon by an external force. This property explains why seatbelts are necessary and why spacecraft continue moving in space without propulsion.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- J: Joule -->
         <div id="description-J" class="hidden-description">
             <p>The joule is the standard unit of energy in physics, measuring the work done when a force of one newton moves an object one meter. It quantifies all energy forms, from the kinetic energy of moving objects to the chemical energy in foods. Named after physicist James Prescott Joule.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- K: Kinetic -->
         <div id="description-K" class="hidden-description">
             <p>Kinetic energy is the energy possessed by objects in motion, calculated as one-half mass times velocity squared. This energy form is transferred during collisions, converted from potential energy during falls, and transformed into other energy types like heat through friction or electrical energy in generators.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- L: Luminosity -->
         <div id="description-L" class="hidden-description">
             <p>Luminosity measures the total energy emitted by a light source per unit time. For stars, it relates to their mass, temperature, and size. This property helps astronomers determine stellar evolution, distances between celestial objects, and understand how energy from stars like our sun enables life.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- M: Momentum -->
         <div id="description-M" class="hidden-description">
             <p>Momentum is the product of mass and velocity, representing an object's motion quantity. This conserved physical property explains why heavier or faster objects are harder to stop, and why collisions transfer motion between objects. In isolated systems, total momentum remains constant despite individual object changes.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- N: Neutron -->
         <div id="description-N" class="hidden-description">
             <p>The neutron is a subatomic particle with no electric charge, found in atomic nuclei alongside protons. These particles stabilize nuclei and make elements with the same number of protons (isotopes) possible. Free neutrons are unstable and radioactively decay, playing crucial roles in nuclear reactions and radiation.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- O: Oscillation -->
         <div id="description-O" class="hidden-description">
             <p>Oscillation is regular variation around an equilibrium position or value. This phenomenon occurs in pendulums, springs, sound waves, and electromagnetic fields. Characterized by amplitude, frequency, and period, oscillations transfer energy through waves and form the basis for timekeeping, music, and communications technology.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- P: Potential -->
         <div id="description-P" class="hidden-description">
             <p>Potential energy is stored energy due to an object's position or state. It exists in many forms: gravitational (height), elastic (springs), chemical (bonds), and electrical (charge position). This energy can convert to kinetic energy and other forms, demonstrating energy conservation as objects interact with their environment.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- Q: Quantum -->
         <div id="description-Q" class="hidden-description">
             <p>Quantum refers to discrete packets of energy that light and matter possess at the subatomic scale. This revolutionary concept explains how energy is transferred in fixed amounts rather than continuously, leading to quantum mechanics which governs electron behavior, atomic structure, and modern technologies like lasers and transistors.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- R: Resonance -->
         <div id="description-R" class="hidden-description">
             <p>Resonance occurs when a system is driven at its natural frequency, causing amplified oscillations. This phenomenon explains how musical instruments produce sound, why bridges require dampeners, and how MRI machines image human tissue. Resonant systems efficiently transfer energy, sometimes with dramatic or destructive consequences.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- S: Symmetry -->
         <div id="description-S" class="hidden-description">
             <p>Symmetry in physics refers to features that remain unchanged under certain transformations. These principles underlie conservation laws: time symmetry connects to energy conservation, spatial symmetry to momentum conservation. Nature's fundamental forces and particles are defined by symmetries, providing a framework for understanding physical reality.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- T: Thermal -->
         <div id="description-T" class="hidden-description">
             <p>Thermal energy is the internal energy of matter due to molecular motion. Temperature measures this motion's average intensity, while heat represents thermal energy transfer between objects. This energy form follows thermodynamics laws: it flows from hot to cold regions and ultimately converts to less useful forms.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- U: Uncertainty -->
         <div id="description-U" class="hidden-description">
             <p>Uncertainty in quantum mechanics represents fundamental limits on measurement precision. Heisenberg's Principle states that certain paired properties (like position and momentum) cannot be simultaneously measured with perfect accuracy. This isn't due to instrument limitations but reflects nature's probabilistic character at quantum scales, challenging classical determinism.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- V: Voltage -->
         <div id="description-V" class="hidden-description">
             <p>Voltage is the electric potential difference between two points, measured in volts. It represents the force that drives electric current through a circuit. Higher voltage increases the energy carried by electrons, powering everything from household appliances to telecommunications. This fundamental property enables energy transmission across vast distances in our power grid.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- W: Wave -->
         <div id="description-W" class="hidden-description">
             <p>Waves transfer energy through space and matter without permanent particle displacement. They exhibit properties like frequency, wavelength, amplitude, and interference patterns. Wave phenomena explain sound transmission, light behavior, water movement, and information transfer in technologies ranging from radio to quantum computing systems.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- X: X-ray -->
         <div id="description-X" class="hidden-description">
             <p>X-rays are high-energy electromagnetic radiation with wavelengths shorter than visible light. Their penetrating ability allows imaging of internal structures while being absorbed differently by various materials. This property enables medical diagnostics, security scanning, crystallography for molecular structure determination, and astronomical observations of high-energy cosmic phenomena.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- Y: Yield -->
         <div id="description-Y" class="hidden-description">
             <p>Yield in physics represents the energy released during processes like nuclear reactions or material deformation. In nuclear contexts, it measures explosive energy release, while in materials science, yield point indicates when elastic deformation becomes plastic. This concept is crucial for energy production, weapons assessment, and structural engineering.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
         
         <!-- Z: Zero Point -->
         <div id="description-Z" class="hidden-description">
             <p>Zero-point energy is the minimum energy quantum systems possess even at absolute zero temperature. This residual energy exists because the uncertainty principle prevents particles from being completely at rest. It manifests in phenomena like vacuum fluctuations and may influence fundamental forces, with theoretical implications for quantum field theory and cosmology.</p>
-            <a href="#" class="js-link" style="display:none;"></a>
+
         </div>
     </div>
 
     <!-- GSAP Core and Plugins -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-<script src="Physics2DPlugin.min.js"></script>
 <script src="SplitText.min.js"></script>
-<script src="CustomEase.min.js"></script>
-<script src="CustomBounce.min.js"></script>
-<script src="CustomWiggle.min.js"></script>
-<script src="EasePack.min.js"></script>
-<script src="Draggable.min.js"></script>
-<script src="Flip.min.js"></script>
-<script src="primer-no-cursor.js"></script>
+<script src="primer-no-cursor.js?v=2"></script>
     <script>
         // Compatibility script for the new layout
         document.addEventListener('DOMContentLoaded', function() {
-            // Make sure the js-link in the header triggers the hidden js-link in the description
-            const jsLink = document.querySelector('.js-link');
-            jsLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Find the current letter
-                const currentLetter = document.querySelector('.letter.current').getAttribute('data-letter');
-                
-                // Find the hidden js-link in the description for the current letter
-                const hiddenDesc = document.getElementById(`description-${currentLetter}`);
-                if (hiddenDesc) {
-                    const descJsLink = hiddenDesc.querySelector('.js-link');
-                    if (descJsLink) {
-                        // Simulate click on the original js-link
-                        descJsLink.click();
-                    }
-                }
-            });
-
-            // Make language button work as a link to Korean version
-            const langBtn = document.querySelector('.lang-btn');
-            langBtn.addEventListener('click', function() {
-                window.location.href = 'primer-ko.html';
-            });
-
             // Update the visible description when letter changes
             document.addEventListener('letterChanged', function(event) {
                 if (event.detail && event.detail.letter) {
@@ -306,194 +271,124 @@
             function updateDescription(letter) {
                 const hiddenDesc = document.getElementById(`description-${letter}`);
                 const visibleDesc = document.getElementById('visible-description');
-                
+
                 if (hiddenDesc && visibleDesc) {
                     const contentText = hiddenDesc.querySelector('p').textContent;
-                    visibleDesc.innerHTML = `<p>${contentText}</p>`;
+                    visibleDesc.innerHTML = `<p>${formatDescription(contentText)}</p>`;
                 }
             }
+
+            // Italicize the leading concept word and any formula in parentheses
+            function formatDescription(text) {
+                // Italicize formula-style parentheticals, e.g. (F=ma)
+                let html = text.replace(/\(([^)]*=[^)]*)\)/g, '(<em>$1</em>)');
+                // Italicize the concept term: the first word, or the word
+                // after a leading article (The / A / An), e.g. "The neutron"
+                const articles = ['the', 'a', 'an'];
+                html = html.replace(/^(\s*)(\S+)(\s+)(\S+)/, function(m, lead, w1, sp, w2) {
+                    const bare = w1.toLowerCase().replace(/[^a-z]/g, '');
+                    if (articles.includes(bare)) {
+                        return lead + w1 + sp + '<em class="concept-term">' + w2 + '</em>';
+                    }
+                    return lead + '<em class="concept-term">' + w1 + '</em>' + sp + w2;
+                });
+                return html;
+            }
+
+            // Format the initial (server-rendered) description on load
+            (function() {
+                const visibleDesc = document.getElementById('visible-description');
+                if (visibleDesc) {
+                    const p = visibleDesc.querySelector('p');
+                    if (p) p.innerHTML = formatDescription(p.textContent);
+                }
+            })();
         });
     </script>
     
-    <!-- Fixed Info Box Script with responsive text -->
+    <!-- About Popup Script -->
 <script>
    document.addEventListener('DOMContentLoaded', function() {
-    // Create the info box element
-    const infoBox = document.createElement('div');
-    infoBox.id = 'info-modal';
-    
-    // Function to position and size the info box correctly
-    function positionInfoBox() {
-        // Find the About button to position popup directly underneath
-        const aboutBtn = document.querySelector('.info-btn');
-        
-        if (aboutBtn) {
-            const btnRect = aboutBtn.getBoundingClientRect();
-            
-            // Position info box directly under About button
-            infoBox.style.position = 'absolute';
-            infoBox.style.top = (btnRect.bottom + 10) + 'px';
-            infoBox.style.left = btnRect.left + 'px';
-            
-            // Make popup - 750px wide and auto height
-            infoBox.style.width = '750px';
-            infoBox.style.height = 'auto';
-            infoBox.style.maxHeight = 'none';
-        }
-    }
-    
-    // Style the info box
-    infoBox.style.backgroundColor = 'rgba(209, 209, 209, 0.9)';
-    infoBox.style.zIndex = '1000';
-    infoBox.style.display = 'none';
-    infoBox.style.overflow = 'auto';
-    infoBox.style.border = '1.5px solid #000';
-    
-    document.body.appendChild(infoBox);
-    
-    // Initial positioning
-    positionInfoBox();
-    
-    // Reposition on window resize
-    window.addEventListener('resize', positionInfoBox);
+    const mqMobile = window.matchMedia('(max-width: 768px)');
 
-    // Get the exact padding from description column
-    const descriptionColumn = document.querySelector('.description-column');
-    let descPadding = '2rem';
-    
-    if (descriptionColumn) {
-        const computedStyle = window.getComputedStyle(descriptionColumn);
-        descPadding = computedStyle.padding;
-    }
+    // Same copy on both, except the interaction verb: desktop can hover,
+    // mobile only taps.
+    const TEXT_DESKTOP = 'Everything exists as energy in constant flux, shifting between forms and states. Energy in Motion pairs each letter of the alphabet with an energy concept you can move and feel: hover or tap a letter and it accelerates, vibrates, or contracts, driven by a physical principle. Drag the numbers in the code beside it to retune the motion yourself.';
+    const TEXT_MOBILE = 'Everything exists as energy in constant flux, shifting between forms and states. Energy in Motion pairs each letter of the alphabet with an energy concept you can move and feel: tap a letter and it accelerates, vibrates, or contracts, driven by a physical principle. Drag the numbers in the code beside it to retune the motion.';
 
-    // Add content to the info box
-    infoBox.innerHTML = `
-        <div style="padding: 15px 20px; font-family: 'SuisseIntl-Light', 'test-family-light', sans-serif; font-size: 18px; line-height: 1.4; text-align: left; width: 100%; box-sizing: border-box;">
-            <p>All things exist as energy in constant flux, transforming through different forms and states. This ABC Primer pairs letters with energy concepts that respond to your cursor movements, allowing you to interact with these principles beyond static definitions. The project combines field research with speculative design to create an experiential exploration of energy phenomena. Each letter visualizes scientific principles through interactive animations that reveal the dynamic nature of physical forces and transformations.</p>
-        </div>
-    `;
+    const popup = document.createElement('div');
+    popup.id = 'about-popup';
+    popup.style.display = 'none';
+    popup.style.position = 'absolute';
+    popup.style.top = '71px';
+    popup.style.left = '10px';
+    popup.style.width = 'auto';
+    popup.style.maxWidth = 'min(560px, calc(100vw - 2rem))';   // 620 → 560 (11-08)
+    popup.style.padding = '0.75rem';
+    popup.style.background = '#533422';   // 글자색(#3D2619)보다 한 톤 연하게 (11-08)
+    popup.style.color = '#F0F0F0';
+    popup.style.border = 'none';
+    popup.style.borderRadius = '0';
+    popup.style.zIndex = '1000';
+    popup.style.lineHeight = '1.5';   // 어두운 바탕 반전 글자라 1.4 → 1.5 (11-08)
 
-    // Track if the box is visible
-    let isInfoBoxVisible = false;
+    const backBtn = document.createElement('button');
+    backBtn.className = 'about-back';
+    backBtn.textContent = 'back';
+    backBtn.style.display = 'none';
 
-    // Find the info button
+    const para = document.createElement('p');
+    para.style.fontFamily = "'SuisseIntl-Light',sans-serif";
+    para.style.fontSize = '18px';
+    para.style.margin = '0';
+
+    popup.appendChild(backBtn);
+    popup.appendChild(para);
+    document.body.appendChild(popup);
+
+    let aboutOpen = false;
     const infoBtn = document.querySelector('.info-btn');
-    
-    // Add click event listener
+
+    function openAbout() {
+        const mobile = mqMobile.matches;
+        para.textContent = mobile ? TEXT_MOBILE : TEXT_DESKTOP;
+        popup.classList.toggle('about-mobile', mobile);   // full-screen overlay on mobile
+        backBtn.style.display = mobile ? 'block' : 'none';
+        popup.style.display = 'block';
+        aboutOpen = true;
+    }
+    function closeAbout() {
+        popup.style.display = 'none';
+        aboutOpen = false;
+    }
+
     if (infoBtn) {
         infoBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            
-            if (!isInfoBoxVisible) {
-                // Show the box
-                infoBox.style.display = 'flex';
-                infoBox.style.justifyContent = 'center';
-                infoBox.style.alignItems = 'center';
-                positionInfoBox(); // Ensure correct positioning on display
-                isInfoBoxVisible = true;
-            } else {
-                // Hide the box
-                infoBox.style.display = 'none';
-                isInfoBoxVisible = false;
-            }
+            if (aboutOpen) closeAbout(); else openAbout();
         });
-        
-        // Close when clicking anywhere else
+
+        backBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeAbout();
+        });
+
+        // Desktop: click outside closes. Mobile: full-screen, closed via "back".
         document.addEventListener('click', function(e) {
-            if (isInfoBoxVisible && !infoBox.contains(e.target) && e.target !== infoBtn) {
-                infoBox.style.display = 'none';
-                isInfoBoxVisible = false;
+            if (aboutOpen && !mqMobile.matches && !popup.contains(e.target) && e.target !== infoBtn) {
+                closeAbout();
             }
         });
     }
 });
 
-    // Question mark functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const questionBtn = document.querySelector('.question-btn');
-        const questionCircle = document.querySelector('.question-circle');
-        
-        if (questionBtn && questionCircle) {
-            questionBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                questionCircle.classList.toggle('show');
-            });
-            
-            // Close when clicking elsewhere
-            document.addEventListener('click', function(e) {
-                if (!questionBtn.contains(e.target) && !questionCircle.contains(e.target)) {
-                    questionCircle.classList.remove('show');
-                }
-            });
-        }
-
-        // Alphabet question mark functionality
-        const alphabetQuestionBtns = document.querySelectorAll('.alphabet-question-btn');
-        alphabetQuestionBtns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                // Get the letter from parent element
-                const letter = btn.parentElement.getAttribute('data-letter');
-                
-                // Find the description for this letter
-                const description = document.getElementById('description-' + letter);
-                
-                if (description) {
-                    // Create a popup showing the description
-                    let popup = document.getElementById('alphabet-popup');
-                    if (!popup) {
-                        popup = document.createElement('div');
-                        popup.id = 'alphabet-popup';
-                        popup.style.position = 'absolute';
-                        popup.style.background = '#d1d1d1';
-                        popup.style.border = '1.5px solid #000';
-                        popup.style.padding = '12px';
-                        popup.style.fontFamily = 'SuisseIntl-Light, sans-serif';
-                        popup.style.fontSize = '12px';
-                        popup.style.lineHeight = '1.3';
-                        popup.style.zIndex = '1000';
-                        popup.style.maxWidth = '300px';
-                        popup.style.display = 'none';
-                        document.body.appendChild(popup);
-                    }
-                    
-                    // Position popup near the clicked button
-                    const rect = btn.getBoundingClientRect();
-                    popup.style.top = (rect.bottom + 5) + 'px';
-                    popup.style.left = rect.left + 'px';
-                    
-                    // Set content
-                    popup.innerHTML = description.querySelector('p').innerHTML;
-                    
-                    // Show/hide popup
-                    if (popup.style.display === 'block') {
-                        popup.style.display = 'none';
-                    } else {
-                        popup.style.display = 'block';
-                    }
-                }
-            });
-        });
-
-        // Close alphabet popup when clicking elsewhere
-        document.addEventListener('click', function(e) {
-            const popup = document.getElementById('alphabet-popup');
-            if (popup && !e.target.classList.contains('alphabet-question-btn')) {
-                popup.style.display = 'none';
-            }
-        });
-    });
     </script>
-    <script src="code-display.js"></script>
-    <script src="particles.js"></script>
+    <script src="code-display.js?v=2"></script>
     <script>
         // Self-contained fix for navigation buttons and keyboard controls
 (function() {
     // Wait for page to fully load
     window.addEventListener('load', function() {
-        console.log("Navigation fix running...");
-        
         // Get the navigation buttons
         const prevButton = document.querySelector('.nav-text-button.prev');
         const nextButton = document.querySelector('.nav-text-button.next');
@@ -515,7 +410,7 @@
         let hasGlobalNavFunctions = false;
         if (typeof window.goToPrevLetter === 'function' && typeof window.goToNextLetter === 'function') {
             hasGlobalNavFunctions = true;
-            console.log("Using existing global navigation functions");
+
         }
         
         // Navigation functions - but don't define them if they already exist
@@ -531,7 +426,7 @@
                 const prevElement = document.querySelector(`.letter[data-letter="${prevLetter}"]`);
                 if (prevElement) {
                     prevElement.click();
-                    console.log(`Navigated to previous letter: ${prevLetter}`);
+
                 }
             };
             
@@ -545,11 +440,11 @@
                 const nextElement = document.querySelector(`.letter[data-letter="${nextLetter}"]`);
                 if (nextElement) {
                     nextElement.click();
-                    console.log(`Navigated to next letter: ${nextLetter}`);
+
                 }
             };
             
-            console.log("Navigation functions defined");
+
         }
         
         // Directly replace the buttons with new ones that have working handlers
@@ -587,8 +482,7 @@
         const styleEl = document.createElement('style');
         styleEl.textContent = `
             .nav-text-button.keyboard-active {
-                font-style: italic;
-                transform: translateY(-50%) skewX(-5deg) !important;
+                color: #9A9188 !important;
             }
         `;
         document.head.appendChild(styleEl);
@@ -624,7 +518,7 @@
             }
         }, true); // Use capturing phase to ensure this runs first
         
-        console.log("Navigation fix with single key press handling applied successfully");
+
     });
 })();
         </script>

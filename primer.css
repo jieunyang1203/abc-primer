@@ -1,0 +1,820 @@
+@font-face {
+    font-family: 'SuisseIntl-Light';
+    src: url('SuisseIntl-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'test-family-light';
+    src: url('test-family-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'test-family-light-italic';
+    src: url('test-family-light-italic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SuisseIntl-Light', sans-serif;
+}
+
+/* Remove the browser focus ring / tap highlight on buttons after clicking */
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+button:focus,
+button:focus-visible {
+    outline: none;
+}
+
+html {
+    min-width: 1200px;
+    height: 100%;
+    background-color: #F0F0F0; /* match body so the loading fade-in has no white flash */
+    /* Scroll to reveal parts of the layout when the window is smaller than
+       the fixed canvas, instead of squashing it */
+    overflow: auto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 800px; /* Fixed canvas height; below this the page scrolls */
+    background-color: #F0F0F0;
+    color: #3D2619; /* base text color (was default black) */
+    font-family: 'SuisseIntl-Light', sans-serif;
+    letter-spacing: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Nav Area */
+.top-nav {
+    height: 60px; /* Fixed height for consistency */
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.info-btn, .lang-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #3D2619;                 /* brown, matching the title (buttons don't inherit it) */
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+
+.info-btn:active, .lang-btn:active {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    color: #9A9188;
+}
+
+/* Hide the circles */
+.circle {
+    display: none;
+}
+
+.site-title {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #3D2619;
+    text-align: left;
+    cursor: pointer; /* Add cursor pointer for the clickable title */
+    transition: color 0.2s ease;
+}
+
+
+
+.top-divider {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    height: 1.5px;
+    background: #3D2619;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+/* Letter Word (in the centre column header) */
+.letter-word {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* Counter */
+.counter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0;
+    /* Nudge down so the counter's cap-top lines up with the title word's cap-top
+       (the word carries line-height 1.2em + 0.1em padding that lowers its glyph). */
+    position: relative;
+    top: 0.3em;
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: 0; /* Allow the row to respect flex height so columns can scroll */
+    border-bottom: none;
+    position: relative;
+}
+
+/* Add pseudo-element for the bottom border with margins */
+.main-content-wrapper:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    height: 1.5px;
+    background: #3D2619;
+}
+
+/* Code Column (left) */
+.code-column {
+    width: 28.5%;
+    padding: 1.5rem 2rem;
+    position: relative;
+    min-height: 0; /* Enable internal scrolling within the flex row */
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+
+#code-display {
+    width: 100%;
+}
+
+.code-title {
+    font-family: 'test-family-light', monospace;
+    font-size: 18px;
+    font-weight: normal;
+    color: #9A9188;
+    margin-bottom: 10px;
+}
+
+.code-body {
+    font-family: 'test-family-light', monospace;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #3D2619;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Syntax highlight boxes (background band hugging the text, dark-brown text) */
+.code-body .tok {
+    font-family: 'SuisseIntl-Light', sans-serif; /* sans tokens over the serif code */
+    font-size: calc(1em - 2px); /* sans smaller so the serif code reads slightly larger */
+    color: #3D2619;
+    line-height: 1;
+    padding: 0 4px;
+    border-radius: 1.5px;
+    /* Paint the highlight as a short band centered on the glyphs so the
+       box height is independent of the line spacing */
+    background-image: linear-gradient(var(--hl), var(--hl));
+    background-repeat: no-repeat;
+    background-position: 0 58%;
+    background-size: 100% 0.95em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.code-body .tok-keyword { --hl: #9EC1FF; } /* blue        – keywords */
+.code-body .tok-func    { --hl: #7CD779; } /* green       – function / method calls */
+.code-body .tok-prop    { --hl: #FEB8FF; } /* pink        – properties / object keys */
+.code-body .tok-string  { --hl: #E8E1B4; } /* tan         – strings */
+.code-body .tok-number  { --hl: #DAE67A; } /* yellow-green – numbers */
+.code-body .tok-comment {
+    --hl: #E6E6E6;                              /* gray – comments */
+    font-family: 'test-family-light', monospace; /* serif, matching the title/code (not the sans tokens) */
+    font-size: 1em;                             /* undo the sans -2px so it reads at the serif size */
+}
+
+/* Cursor-following affordance hint over the code area: light fill with a rounded
+   brown stroke (SVG so the stroke can have round joins, matching the design). */
+.code-cursor-hint {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000;
+    pointer-events: none;
+    display: none;
+    overflow: visible;
+    transform: translate(14px, 4px);
+}
+/* Mobile: pin the hint to the screen centre so it never clips off-screen
+   (position/visibility are driven by scroll in code-display.js). */
+.code-cursor-hint.mobile-hint {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.code-cursor-hint.mobile-hint text {
+    font-size: 14px;               /* smaller to suit the phone screen */
+}
+.code-cursor-hint text {
+    font-family: 'test-family-light-italic', serif;   /* 설명 단어(Acceleration)와 같은 이탤릭 (11-08) */
+    font-style: italic;
+    font-size: 19px;
+    fill: #3D2619;                 /* 아웃라인 없이 사이트 글자색 갈색으로 (11-08) */
+    stroke: none;
+}
+
+/* Hide the native cursor only while the hint is active (cursor within the right
+   band of the code area), so the hint reads as the cursor there without blocking
+   number-dragging elsewhere. */
+.code-column.hint-active { cursor: none; }
+
+/* Scrubbable numbers: drag left/right to retune the live animation */
+.code-body .tok-number.scrub {
+    cursor: ew-resize;
+    touch-action: none;            /* let horizontal drags scrub, not scroll */
+}
+.code-body .tok-number.scrub:hover {
+    outline: 1px dashed rgba(61, 38, 25, 0.4);
+    outline-offset: 1px;
+}
+.code-body .tok-number.scrub-active { --hl: #BFFF7B; }   /* brighten while dragging */
+.code-body .tok-number.scrub-edited { --hl: #BFFF7B; }   /* mark values changed from default */
+
+/* Global scrub state: unify the cursor and kill text selection while dragging */
+body.scrubbing,
+body.scrubbing * { cursor: ew-resize !important; }
+body.scrubbing { user-select: none; -webkit-user-select: none; }
+
+/* Description Column (right) */
+.description-column {
+    width: 28.5%;
+    padding: 2rem;
+    border-right: none;
+    line-height: 1.35;
+    font-size: 22px;
+    font-family: 'SuisseIntl-Light', sans-serif;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+/* Italic concept word / formulas inside the description */
+.description-column em {
+    font-family: 'test-family-light-italic', serif;
+    font-style: italic;
+    font-size: calc(1em + 1.7px); /* serif ~1.7px larger than the sans body */
+}
+
+/* Leading concept term gets a permanent highlighter box (matches the code scrub
+   color). Only the concept word carries .concept-term; formulas stay unhighlighted. */
+.description-column em.concept-term {
+    padding: 0 0.12em;
+    background-image: linear-gradient(#BFFF7B, #BFFF7B);
+    background-repeat: no-repeat;
+    background-position: 0 62%;
+    background-size: 100% 0.92em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* Concept word stays green even when selected (still selectable/copyable) */
+.description-column em.concept-term::selection {
+    background-color: #BFFF7B;
+    color: #3D2619;
+}
+.description-column em.concept-term::-moz-selection {
+    background-color: #BFFF7B;
+    color: #3D2619;
+}
+
+
+/* Main Display Area (center) */
+.main-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1.5rem 2rem;
+}
+
+/* Left divider for the center column (between code and center) */
+.main-display:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    width: 1.5px;
+    background: #3D2619;
+}
+
+/* Right divider for the center column (between center and description) */
+.main-display:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    right: 0;
+    width: 1.5px;
+    background: #3D2619;
+}
+
+/* Word + counter row at the top of the center column */
+.letter-word-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;   /* top-align the counter with the title word */
+    width: 100%;
+}
+
+/* Center the big letter in the remaining space */
+.letter-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.main-letter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 350px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: center;
+    display: block;
+}
+
+/* Optical size correction: W and M are wider glyphs and read as bulkier than
+   the rest, so nudge them down a hair. (Class toggled per letter in JS; GSAP
+   only transforms the child chars, so this parent scale never conflicts.) */
+.main-letter.wide-letter {
+    transform: scale(0.96);
+    transform-origin: center center;
+}
+
+.concept {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Improved navigation button styles with clear skew effect */
+.nav-text-button {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0;
+    color: #3D2619;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.nav-text-button.prev {
+    left: 0;
+}
+
+.nav-text-button.next {
+    right: 0;
+}
+
+.nav-text-button:active,
+.nav-text-button.active-key {
+    color: #9A9188;
+}
+
+/* Hover colour only on real pointer devices — prevents the colour
+   sticking after a tap on touchscreens */
+@media (hover: hover) {
+    .nav-text-button:hover {
+        color: #9A9188;
+    }
+}
+
+/* Alphabet Strip */
+.alphabet-strip {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    height: 60px;
+    align-items: center;
+}
+
+.letter {
+    font-family: 'SuisseIntl-Light', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0;
+    cursor: pointer;
+    color: #9A9188; /* Gray color for non-selected letters */
+    padding: 0.25rem 0.6rem;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 15px;
+    position: relative;
+    top: 8px; /* nudge only the letters down; slider track/thumb stay put */
+    transition: color 0.2s ease;
+}
+
+.letter.current {
+    color: #3D2619; /* dark-brown color for selected letter */
+    background-color: transparent;
+    padding: 0.35rem 0.6rem;
+    margin-top: 15px;
+    font-weight: 400; /* Slightly bolder for better visibility */
+}
+
+/* Slider Container */
+.slider-container {
+    padding: 0 2rem;
+    position: relative;
+    height: 60px;
+    margin: 1rem 0 2rem;
+}
+
+.slider-track {
+    width: calc(100% - 48px);
+    height: 1.5px;
+    background-color: #3D2619;
+    position: absolute;
+    top: 65%;
+    left: 24px;
+    transform: translateY(-50%);
+}
+
+.slider-thumb {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: #F0F0F0;
+    border: 1.5px solid #3D2619;
+    border-radius: 50%;
+    top: 65%;
+    transform: translateX(-12px) translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Hidden descriptions */
+.hidden-description {
+    display: none;
+    word-break: keep-all; /* Prevent Korean text from breaking words */
+    overflow-wrap: break-word; /* Allow wrapping after complete words */
+}
+
+/* Loading transition */
+html.loading body {
+    opacity: 0;
+}
+
+body {
+    transition: opacity 0.1s ease-out;
+}
+
+/* Make all text elements non-selectable by default */
+body, .nav-buttons, .info-btn, .lang-btn, .site-title,
+.counter, .main-letter, .alphabet-strip, .letter {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Make specific text elements selectable */
+.description-column .description,
+.concept,
+.letter-word {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.description-column .description,
+.description-column .description p {
+    font-family: 'SuisseIntl-Light', sans-serif !important;
+}
+
+
+/* Style for selected text */
+::selection {
+    background-color: #B7B5B0;
+    color: #3D2619;
+}
+::-moz-selection {
+    background-color: #B7B5B0;
+    color: #3D2619;
+}
+
+
+
+/* Ensure proper line spacing in descriptions */
+.description-column .description,
+.description-column .description p {
+    line-height: 1.35 !important; /* Force line-height to be applied */
+}
+
+/* Adjust selection height to hug text better while preserving line height */
+.concept,
+.letter-word {
+    line-height: 1.2em;
+    padding: 0.1em 0;
+}
+
+.description-column .description p {
+    padding: 0.1em 0;
+}
+
+/* ── Fluid responsive scaling (base reference: 1440 × 900) ──
+   Only scales between 1200px and up. Below 1200px the layout freezes at
+   full size and the page scrolls horizontally (html has min-width:1200px). */
+@media (min-width: 1200px) {
+
+.top-nav {
+    height: clamp(40px, 4.2vw, 60px);
+    padding: 0 clamp(1rem, 2vw, 2rem);
+}
+
+.info-btn,
+.lang-btn {
+    font-size: clamp(12px, 1.25vw, 18px);
+}
+
+.site-title {
+    font-size: clamp(12px, 1.25vw, 18px);
+    max-width: 50%;
+}
+
+.letter-word {
+    font-size: clamp(28px, 3.3vw, 48px);
+}
+
+.counter {
+    font-size: clamp(14px, 1.53vw, 22px);
+}
+
+.description-column {
+    font-size: clamp(13px, 1.53vw, 22px);   /* matches .concept exactly */
+    padding: clamp(1rem, 2vw, 2rem);
+}
+
+.main-letter {
+    font-size: clamp(100px, 22vw, 380px);
+}
+
+.concept {
+    font-size: clamp(13px, 1.53vw, 22px);
+}
+
+.nav-text-button {
+    font-size: clamp(12px, 1.25vw, 18px);
+}
+
+.alphabet-strip {
+    height: clamp(36px, 4.2vw, 60px);
+    padding: 0 clamp(1rem, 2vw, 2rem);
+    margin-top: clamp(0.25rem, 1vw, 1.5rem);
+}
+
+.letter {
+    font-size: clamp(11px, 1.94vw, 28px);
+    margin-top: clamp(4px, 1vw, 15px);
+    padding: 0.25rem clamp(0.1rem, 0.4vw, 0.6rem);
+}
+
+.letter.current {
+    margin-top: clamp(4px, 1vw, 15px);
+    padding: 0.35rem clamp(0.1rem, 0.4vw, 0.6rem);
+}
+
+.slider-container {
+    height: clamp(24px, 4.2vw, 60px);
+    margin: clamp(0.25rem, 0.5vw, 1rem) 0 clamp(0.5rem, 1.4vw, 2rem);
+    padding: 0 clamp(1rem, 2vw, 2rem);
+}
+
+.top-divider {
+    height: clamp(1px, 0.104vw, 1.5px);
+}
+
+.main-content-wrapper:after {
+    height: clamp(1px, 0.104vw, 1.5px);
+}
+
+.slider-track {
+    left: clamp(1rem, 2vw, 24px);
+    width: calc(100% - clamp(2rem, 4vw, 48px));
+    height: clamp(1px, 0.104vw, 1.5px);
+}
+
+.slider-thumb {
+    width: clamp(14px, 1.806vw, 26px);
+    height: clamp(14px, 1.806vw, 26px);
+    border-width: clamp(1px, 0.104vw, 1.5px);
+    transform: translateX(clamp(-13px, -0.903vw, -7px)) translateY(-50%);
+}
+
+#about-popup {
+    max-width: min(560px, calc(100vw - 2rem)) !important;   /* 620 → 560 (11-08) */
+    width: auto !important;
+    /* Align the box top to where the centre-column vertical dividers start:
+       top-nav height + top-divider (1.5px) + divider inset (10px). */
+    top: calc(clamp(40px, 4.2vw, 60px) + 11.5px) !important;
+}
+
+} /* end @media (min-width: 1200px) */
+
+
+/* ════════════════════════════════════════════════════════════
+   Mobile layout (stacked) — phones up to 768px wide.
+   Order: title → word + KOR → back/next + letter + concept →
+          description → code.  No About, no slider, no A–Z strip.
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    html {
+        min-width: 0;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    body {
+        height: auto;
+        min-height: 100%;
+    }
+
+    /* Top nav: title on the left, About on the right, on one line */
+    .top-nav {
+        height: auto;
+        padding: 0.55rem 0.9rem 0.65rem;
+        align-items: baseline;
+    }
+    .nav-buttons {
+        display: flex;
+        order: 2;           /* push About to the right of the title */
+        flex: none;
+    }
+    .info-btn { font-size: clamp(13px, 3.9vw, 17px); }
+    .site-title {
+        order: 1;
+        font-size: clamp(13px, 3.9vw, 17px);
+        line-height: 1.2;
+        max-width: 100%;
+        text-align: left;
+        white-space: nowrap;
+    }
+    .site-title .subtitle { display: none; } /* drop the subtitle on mobile */
+
+    /* About panel becomes a full-screen overlay on mobile */
+    #about-popup.about-mobile {
+        position: fixed !important;
+        inset: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        padding: 0.55rem 0.9rem 1.5rem !important;   /* same left/right/top inset as the top nav */
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        z-index: 3000 !important;
+    }
+    /* "back" pinned to exactly where the nav "About" sits (top-right) */
+    #about-popup.about-mobile .about-back {
+        display: block;
+        position: absolute;
+        top: 0.55rem;
+        right: 0.9rem;
+        background: none;
+        border: none;
+        color: #F0F0F0;
+        font-family: 'SuisseIntl-Light', sans-serif;
+        font-size: clamp(13px, 3.9vw, 17px);
+        font-weight: 300;
+        padding: 0;
+        cursor: pointer;
+    }
+    #about-popup.about-mobile p {
+        font-size: 15px !important;
+        line-height: 1.5;
+        margin: 3rem 3.5rem 0 1.3rem !important;   /* clear the back button + narrower text with more right margin */
+    }
+
+    .top-divider {
+        width: calc(100% - 1.8rem);
+        margin: 0 0.9rem;
+    }
+
+    /* Stack the three columns: centre → description → code */
+    .main-content-wrapper {
+        flex-direction: column;
+        min-height: 0;
+        padding: 0 0.9rem;
+    }
+    .main-content-wrapper:after { display: none; }
+    .main-display       { order: 1; }
+    .description-column { order: 2; }
+    .code-column        { order: 3; }
+
+    /* Centre block */
+    .main-display {
+        width: 100%;
+        padding: 1rem 0 1.25rem;
+        border-bottom: 1.5px solid #3D2619;   /* divider under the concept */
+    }
+    .main-display:before,
+    .main-display:after { display: none; } /* remove vertical dividers */
+
+    .letter-word-row {
+        align-items: flex-start;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.25rem;
+        border-bottom: 1.5px solid #3D2619;   /* divider under the word */
+    }
+    .letter-word { font-size: clamp(24px, 7.6vw, 37px); }
+    .counter { font-size: 14px; }   /* shown beside the word on mobile */
+
+    .letter-center {
+        padding: 2.5rem 0 1.5rem;
+    }
+    .nav-text-button {
+        top: 0.75rem;
+        transform: none;
+        font-size: 15px;
+    }
+    .main-letter { font-size: 53vw; }
+    .concept { font-size: 15px; }
+
+    /* Description */
+    .description-column {
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 1.25rem 0;
+        border-bottom: 1.5px solid #3D2619;   /* divider before the code */
+    }
+
+    /* Code */
+    .code-column {
+        width: 100%;
+        min-height: 0;
+        overflow: visible;
+        padding: 1.25rem 0;
+    }
+    .code-title { font-size: 15px; }
+    .code-body  { font-size: 15px; }
+
+    /* Hidden on mobile */
+    .alphabet-strip,
+    .slider-container { display: none; }
+}
