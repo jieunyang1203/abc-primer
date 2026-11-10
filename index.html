@@ -6,31 +6,9 @@
     <title>Energy in Motion: An ABC Primer of Transformative States</title>
     <link rel="preload" href="test-family-light.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="primer.css?v=5">
-    <link rel="icon" href="favicon.ico" sizes="32x32">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <script>
-        // 탭 아이콘: A→Z 를 1초마다, 바탕은 코드 하이라이트 4색을 돌아가며 (사파리는 고정 아이콘)
-        window.addEventListener('load', function() {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-          var colors = ['#BFFF7B', '#FEB8FF', '#9EC1FF', '#7CD779'];
-          var c = document.createElement('canvas'); c.width = c.height = 64;
-          var ctx = c.getContext('2d');
-          var links = document.querySelectorAll('link[rel="icon"]');
-          var i = 0;
-          function draw() {
-            ctx.fillStyle = colors[i % colors.length]; ctx.fillRect(0, 0, 64, 64);
-            ctx.fillStyle = ctx.strokeStyle = '#3D2619'; ctx.lineWidth = 3; ctx.lineJoin = 'round';
-            ctx.font = '300 56px SuisseIntl-Light'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-            var ch = String.fromCharCode(65 + i % 26);
-            ctx.fillText(ch, 32, 35); ctx.strokeText(ch, 32, 35);
-            var url = c.toDataURL('image/png');
-            links.forEach(function(l) { l.type = 'image/png'; l.href = url; });
-            i++;
-          }
-          document.fonts.load('300 56px SuisseIntl-Light').then(function() { draw(); setInterval(draw, 1000); });
-        });
-    </script>
+    <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+    <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
     <script>
         document.documentElement.classList.add('loading');
         window.addEventListener('load', function() {
